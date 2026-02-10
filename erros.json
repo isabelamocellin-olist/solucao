@@ -1,0 +1,234 @@
+[
+  {
+    "label": "Shopee",
+    "children": [
+      {
+        "label": "Envio de produto",
+        "children": [
+          {
+            "label": "Erro: Peso/Dimensões obrigatórios",
+            "solution": "Preencher os dados de peso, comprimento, largura e altura no cadastro do produto (☰) > Cadastros > Produtos > Editar > Dados gerais."
+          },
+          {
+            "label": "product.error_busi Please input all image per variation for variation1, or leave them all empty",
+            "solution": "Para que o envio seja concluído com sucesso, é necessário que todas as imagens das variações estejam no mesmo formato de arquivo, como por exemplo:\n- Todas em .jpg, ou\n- Todas em .png\nMisturar formatos diferentes (como algumas imagens em .jpg e outras em .png) pode gerar esse tipo de erro."
+          },
+          {
+            "label": "Erro: Recommended Age cannot be customized",
+            "solution": "No rascunho do anúncio > Variações > Colocar um valor padrão (não customizado) no campo de idade."
+          },
+          {
+            "label": "product.error_busi The GTIN code is mandatory, please check and upload again",
+            "solution": "O código GTIN do produto é obrigatório. (☰) > Cadastros > Produtos > Editar > Dados gerais."
+          },
+          {
+            "label": "Todas as variações devem possuir os mesmos tipos de variação preenchidos",
+            "solution": "Caso precise criar novas variações para produtos já existentes: Não vamos conseguir fazer o envio e criar novas variações para a Shopee. Então o ideal é ela fazer a criação lá na plataforma e reimportar o anúncio pra cá e vincular ao produto"
+          },
+          {
+            "label": "Erro: Nenhum canal de envio selecionado",
+            "solution": "No rascunho do anúncio > Defina um canal de envio ativo."
+          },
+          {
+            "label": "product.error_busi Variation name length should be within 1-30",
+            "solution": "Esse erro retorna, pois a descrição de seu produto + variação, ultrapassa de 30 caracteres, o qual é o limite permitido pela plataforma.\nIndico que verifique a descrição de seu produto, e ajuste de forma que a descrição das variações não ultrapasse 30 caracteres, e após, teste novamente o envio."
+          },
+          {
+            "label": "product.error_busi Your attribute info is invalid",
+            "solution": "Esse erro é retornado por conta de algum atributo da ficha técnica do anúncio ter sido preenchido com valores inválidos para a categoria do anúncio.\nPara corrigir, verifique qual atributo deu erro ao verificar o log de envio na aba anúncios no produto"
+          },
+          {
+            "label": "product.error_busi All the fields cannot be updated because the product **** status is abnormal",
+            "solution": "Este erro ocorre geralmente quando a plataforma da Shopee acaba revogando o anúncio. Desta forma, precisamos orientar o seller remover o mapeamento do anúncio com o produto, e realizar um novo envio para a plataforma para criar um outro anúncio, caso não exista na plataforma. Caso existir, é necessário que o seller contate a plataforma para analisar o motivo de revogarem o anúncio."
+          },
+          {
+            "label": "product.error_busi The dimension length precision should be integer",
+            "solution": "Esse erro ocorre, pois a shopee não aceita números quebrados nos campos referentes às dimensões do seu produto. Para corrigir, indico que você possa acessar: ☰ > cadastros> produtos > selecione o produto > edite as dimensões e salve. Feito isso poderá prosseguir com uma nova tentativa de envio."
+          },
+          {
+            "label": "product.error_busi Please input the tax information becasue the shop is invoice issued by Shopee",
+            "solution": "Esse erro ocorre quando dentro da Shopee está parametrizado para utilizar o faturador próprio deles. Assim eles passam a exigir em alguns casos que sejam enviados os dados fiscais dos produtos na criação do anúncio. Atualmente os dados fiscais como NCMs e regras tributárias não são enviados no momento de criação de um anúncio, por isso indicamos desabilitar dentro da Shopee o faturador por lá, permitindo assim que o anúncio seja publicado.  No painel do Shopee essa parametrização de 'emissor da nota fiscal' de 'Shopee emite' para 'Outros' pode ser feita  acessando a Central do Vendedor > Perfil da loja > Configurações da NF-e. Após enviar o anúncio se desejar poderá volte a ativar o faturador na Shopee."
+          },
+          {
+            "label": "Produtos com variação: cada variação pode ter apenas 1 imagem.\nproduct.error_model_number global tier option image is not equal to tier one option num shopee imagem",
+            "solution": "Para o envio ser feito com sucesso, a soma das imagens do produto pai e das variações não pode ultrapassar 9. Um produto pai com 3 imagens e 6 variações, com 1 imagem cada, totaliza 9 imagens."
+          },
+          {
+            "label": "product.error_busi Model id for model not exist, please contact shopee to fix the system issue.",
+            "solution": "No rascunho do anúncio em ficha técnica, corrija valores inválidos de marca, modelo ou fabricante."
+          },
+          {
+            "label": "product.error_invalid_logistic_info invalid logistic info , channel_id: (weight or size is invalid for the open channel)",
+            "solution": "Esse erro indica que o peso ou o tamanho (weight or size) desse produto encontra-se em formato inválido para o canal de envio junto à Shopee. Para correção, acesse o produto no ERP, edite-o e na aba: dados gerais, informe os dados de dimensões permitidos pela Shopee. Salve e tente reenvio. Pedimos que verifique esta informação junto à Shopee, para que assim identifique quais são os limites de dimensões que você pode utilizar. Caso preferir, no ato de envio do produto, clicando no card do anúncio terá o campo: canal de envio que pode ser alterado também a fim de selecionar um canal em que o peso e o tamanho do item seja compatível."
+          },
+          {
+            "label": "Emissor da fatura não suportado.",
+            "solution": "No painel da Shopee: > Clique em Loja à esquerda da tela > Clique em Perfil da loja > Clique na aba Configurações da NF-e > Selecione: Outros"
+          },
+          {
+            "label": "product.error_update_price_fail Update price failed, please try later. The price of the most expensive variation divided by the price(including both oringinal price and promotion price) of the cheapest variation is out of limit",
+            "solution": "Atualmente, a Shopee estipula um limite de diferença entre os preços das variações dos produtos.\n Eles validam calculando da seguinte maneira: pegam o maior valor e dividem pelo menor, e o resultado não pode ser igual a x valor limite que eles determinam para aquele produto.\nPor exemplo:\nTemos um produto com 3 variações P, M e G, com os seguintes valores:\nP: R$ 10,00\nM: 35,00\nG: 60,00\nSe considerarmos que o limite da Shopee para este produto for 4, quando este produto for enviado a Shopee, será retornado erro, visto que se aplicarmos o cálculo: 60/10 teremos o resultado = 6.\nOBS: Esse é apenas um exemplo, os produtos podem ter limites diferentes do pontuado. É necessário adaptar para cada situação."
+          },
+          {
+            "label": "product.error_invalid_category Invalid category ID",
+            "solution": "Esse retorno ocorre quando vamos tentar pegar as marcas dentro da Shopee.\nAcontece que quando vamos tentar pegar as marcas que estão na categoria em questão, a Shopee retorna um erro informando que o ID da categoria está inválido, mas essa categoria existe na Shopee.\nAntes de acionarmos o time de analistas ou time técnico, cabe validar nesse site, se a categoria é válida:\nhttps://seller.shopee.com.br/edu/category-guide/?keyword=100861\nPodemos obter o ID da categoria através do mapeamento de categorias dentro da integração."
+          },
+          {
+            "label": "product.error_busi Attribute Registration ID is mandatory required, please check and update",
+            "solution": "Este erro ocorre, pois a categoria selecionada no produto, é necessário o preenchimento do campo Nr de homologação.\nSugerimos para o seller preencher este campo no card do anúncio, salvar e depois enviar novamente."
+          },
+          {
+            "label": "product.error_image_unavailable Please fill in the mandatory field product image",
+            "solution": "Esse erro normalmente acontece quando a Shopee recusa a imagem durante o envio do anúncio. Nesses casos, é importante verificar se a imagem está nos formatos jpg, png ou jpeg, e se suas dimensões estão dentro do limite de 500x500 pixels. Além disso, você pode solicitar ao seller que redimensione a imagem e altere o formato de jpeg para png para reenviar novamente."
+          }
+        ]
+      },
+      {
+        "label": "Atualização de estoque",
+        "children": [
+          {
+            "label": "Erro Genérico de Estoque",
+            "solution": "Verifique se o SKU no sistema corresponde exatamente ao SKU na Shopee."
+          },
+          {
+            "label": "Erro ao enviar estoque: null",
+            "solution": "Esse erro ocorre quando em sua integração na aba 'fulfillment' está marcado o mesmo depósito de sua integração padrão."
+          }
+        ]
+      },
+      {
+        "label": "Expedição",
+        "children": [
+          {
+            "label": "Erro Packages can not download together ao concluir expedição",
+            "solution": "Ao criar um agrupamento de envio na expedição para a Shopee, é necessário que os pedidos pertençam à mesma transportadora da Shopee Envios. Por exemplo:\nPedidos enviados via Shopee Envios pelos Correios só podem ser agrupados com outros pedidos enviados pelos Correios na Shopee Envios. Não é possível agrupá-los com pedidos enviados por outras transportadoras, como, por exemplo, a Sequoia.\nSe esse erro ocorrer ao solicitar a impressão das etiquetas, significa que há pedidos de diferentes transportadoras da Shopee Envios agrupados na mesma expedição."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "Mercado Livre",
+    "children": [
+      {
+        "label": "Envio de produto",
+        "children": [
+          {
+            "label": "O produto não possui tabela de medidas vinculada.",
+            "solution": "Vincular tabela de medidas, clicando no ícone de lupa, acessando ficha técnica no rascunho do anúncio."
+          },
+          {
+            "label": "product.error_invalid_category Categoria inválida.",
+            "solution": "Verificar se a categoria usada está até o último nível disponível. ☰ > Início > Integrações > Selecione sua plataforma > Aba Mapeamentos > Categorias"
+          },
+          {
+            "label": "Atributos repetidos na variação.",
+            "solution": "Esse erro acontece quando enviamos um anúncio para o Mercado Livre e os campos SKU, GTIN ou Cor Principal estão preenchidos de forma incorreta, ou repetida. Sempre que esse erro ocorrer, siga os passos abaixo:\nAcesse a Ficha Técnica do Anúncio: Localize o anúncio que apresentou o erro.\nAjuste os Atributos: Nos campos SKU, GTIN e Cor Principal (se aplicável), altere o valor para: Não informado.\nReenvie o Anúncio: Após fazer essas alterações, tente enviar o anúncio novamente.\nEsses ajustes garantirão que o erro de atributos repetidos não ocorra mais, permitindo o envio correto do anúncio."
+          },
+          {
+            "label": "Sem permissão para realizar esta operação. Entre em contato com o Mercado Livre para verificar sua conta",
+            "solution": "Este erro ocorre quando a conta do Mercado Livre do vendedor apresenta algumas informações ausentes, como telefone, e-mail, CNPJ, etc.\nSendo assim, é necessário informar ao vendedor para que entre em contato com a plataforma e verifique quais campos precisam ser preenchidos para poder anunciar.\nEste erro geralmente pode aparecer também em inglês como: Channel: marketplace is restricted ou Channel: mshops is restricted.\nErro relacionado: Não é possível anunciar, entre em contato com o Mercado Livre para regularizar sua conta"
+          },
+          {
+            "label": "Erro Atributte [SIZE] ou [SIZE_GROW_ID]",
+            "solution": "Este erro ocorre quando a tabela de medidas do Mercado Livre não foi inserida ou se foi inserida, não está com o valor correto, igual ao da variação.\nVerificar se a tabela de medidas foi inserida.\nVerificar se a tabela de medidas inserida no anúncio contém o mesmo valor da variação, ou seja, variação 38, tabela 38. Não pode ser 38BR, por exemplo.\nCaso a tabela não esteja aparecendo, poderá verificar através do filtro de gênero.\nSe a tabela de medidas estiver com um valor incorreto, o vendedor precisará corrigir o valor da tabela diretamente no Mercado Livre e depois inserir no anúncio."
+          },
+          {
+            "label": "Atributos repetidos na variação",
+            "solution": "Esse erro acontece quando enviamos um anúncio para o Mercado Livre e os campos SKU, GTIN ou Cor Principal estão preenchidos de forma incorreta, ou repetida.\nComo Corrigir o Erro:\nSempre que esse erro ocorrer, siga os passos abaixo:\nAcesse a Ficha Técnica do Anúncio: Localize o anúncio que apresentou o erro.\nAjuste os Atributos: Nos campos SKU, GTIN e Cor Principal (se aplicável), altere o valor para Não informado.\nReenvie o Anúncio: Após fazer essas alterações, tente enviar o anúncio novamente.\nEsses ajustes garantirão que o erro de atributos repetidos não ocorra mais, permitindo o envio correto do anúncio."
+          },
+          {
+            "label": "Atributos obrigatórios e com variações",
+            "solution": "Para verificar os atributos de uma categoria do Mercado Livre, podemos utilizar a seguinte URL:\nhttps://api.mercadolibre.com/categories/MLB_da_categoria/attributes\nOnde no “MLB_da_categoria” substituímos pelo código da categoria no ML, por exemplo: MLB6284\nQuando verificar em um atributo que há as tags: “allow_variations” e “required” definidas como “true” indica que o atributo é obrigatório e pode ser enviado como uma variação ou então pode ser cadastrado como um atributo simples na ficha técnica.\nO ideal é enviar ele como uma variação por conta da verificação de qualidade que o Mercado Livre efetua nos anúncios, pois eles apenas consideram para essa validação a opção de variação, se o atributo for enviado como simples, ele não irá compor a soma de qualidade do anúncio, apenas irá cumprir com a exigência de ser obrigatório.\nEntão, se ele deseja que o anúncio dele atinja 100% de qualidade no Mercado Livre, o indicado é enviar como variação, se não desejar, ele pode apenas enviar como simples na ficha técnica utilizando a descrição do atributo do próprio Mercado Livre. No caso do nosso exemplo, seria “UNIT_VOLUME”, então a exigência de ser obrigatório será satisfeita.\n##Por esse link da API do ML conseguimos ver detalhes do anúncio quando já criado (quando já possui um MLB) exemplo:\nhttps://api.mercadolibre.com/items/MLB3758167876\n##Lembrando sempre de substituir o MLB do final pelo MLB do anúncio verificado. Isso pode ser útil, para identificar quando um anúncio é do Fulfillment ou não, ou até mesmo para validação do status atual do anúncio."
+          },
+          {
+            "label": "The attributes seller_package_height, seller_package_length, seller_package_width, seller_package_weight, seller_package_type are all required",
+            "solution": "Está faltando pelo menos um atributo de dimensão\nDescrição: Esse erro ocorre quando um ou mais atributos obrigatórios não são enviados, mesmo que os demais estejam corretos.\nSolução: Verifique se os cinco atributos estão presentes na requisição. Todos são obrigatórios."
+          },
+          {
+            "label": "One or more attributes for seller_package_height, seller_package_length, seller_package_width, seller_package_weight, seller_package_type are in the wrong format - only integers are accepted for dimensions and weight, with 'cm' as the unit for dimensions and 'g' as the unit for weight. Examples: 10 g, 10 cm",
+            "solution": "Formato inválido (por exemplo, uso de decimais)\nDescrição: Esse erro aparece quando um ou mais atributos estão em formato não aceito, como valores decimais ou unidades incorretas.\nSolução: Use apenas valores inteiros."
+          },
+          {
+            "label": "Quantidade em estoque inválida, valor máximo permitido é 1 para a categoria MLB****.",
+            "solution": "Este erro ocorre, pois o tipo de anúncio que o seller informou é ''Grátis'', ou seja, apenas será possível enviar o anúncio se a quantidade em estoque for 1. \nCaso contrário é necessário que ao enviar, altere o tipo de anúncio no card do mesmo para clássico ou premium.\nErros em anúncios\nEste erro ocorre, pois o tipo de anúncio que o seller informou é ''Grátis'', ou seja, apenas será possível enviar o anúncio se a quantidade em estoque for 1. \nCaso contrário é necessário que ao enviar, altere o tipo de anúncio no card do mesmo para clássico ou premium.\nAtivar a compatibilidade com o leitor de tela\nPara ativar o suporte para leitor de tela, pressione Ctrl+Alt+Z Para saber mais sobre atalhos de teclado, pressione Ctrl+barraJanaina Maira de Souza Macedo abandonou o documento."
+          },
+          {
+            "label": "Tempo de garantia inválido, informe somente o número seguido por dias, meses ou anos. ",
+            "solution": "Para corrigir o erro garantia inválida retornado pelo Mercado Livre, siga os passos abaixo:\nPasso a passo para correção:\nAcesse: Menu > Cadastros > Produtos > Selecione o produto que apresentou o erro > Vá até a aba Outros e clique em Garantias > Insira apenas o valor numérico correspondente ao período da garantia, como por exemplo: 1 ou 2 (referente a meses) > Salve as alterações.\nApós realizar essa correção, envie novamente o produto para a plataforma."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "Shein",
+    "children": [
+      {
+        "label": "Envio de produto",
+        "children": [
+          {
+            "label": "É necessário mapear a especificação principal Tipo de Estilo.",
+            "solution": "Nesse caso é necessário criar uma variação do produto de 'Estilo'...\n☰ > Cadastros > Produtos > Clique nos três pontinhos (⋯) > Tornar simples.\nDepois transforme em variação novamente adicionando a grade de estilo."
+          },
+          {
+            "label": "modelo não tem valor de atributo sob o tipo attribute_value_id - 0",
+            "solution": "Este erro indica que a cor ou o modelo do produto não possui um valor de atributo definido sob o tipo attribute_value_id = 0.\nA Shein só permite valores de atributos que sejam aceitos por eles para a categoria específica. O valor de atributo precisa já existir no sistema e ser compatível.\nQuando esse erro retornar, indiferente do atributo (cor, tamanho, etc.), a solução é:\nEditar o Card do Anúncio:\nNa aba Ficha Técnica.\nRemova o atributo listado (por exemplo, se o erro for no atributo tamanho, remova-o).\nInserir um Atributo Válido:\nInsira um atributo que seja aceito pela Shein para essa categoria.\nQuando houver a lupa no atributo, busque o valor através dela.\nQuando não houver a lupa, digite até que retorne uma sugestão em tela e então selecione a sugestão.\nApós as correções, salve e siga com o envio do anúncio."
+          },
+          {
+            "label": "As imagens devem ser quadradas e ter entre 900 x 900 a 2200x2200 pixels.",
+            "solution": "Esse erro é retornado quando as imagens vinculadas em seu produto não são aceitas pela plataforma. Para ser possível o envio indico que redimensione suas imagens, para ficarem conforme as diretrizes exigidas pela Shein. \nO redimensionamento poderá ser realizado utilizando ferramentas como o Paint, visando atender às especificações da plataforma. Indicamos o material que segue, a fim de saber mais a respeito das validações da Shein para cada tipo de imagem a ser enviada, destacando as dimensões aceitas para cada https://open.sheincorp.com/documents/faq-detail/4"
+          },
+          {
+            "label": "O atributo Tipo possui um valor preenchido manualmente. Por favor, selecione um valor da lista pré-definida",
+            "solution": "O erro é ocasionado, pois na ficha técnica do envio do anúncio, consta preenchido o campo em questão com um valor personalizado, o que é inválido para a Shein.\nPara corrigir essas situações, no ato do envio do produto à plataforma clique no card do anúncio e então na aba ficha técnica, você precisará clicar no ícone de lupa do campo deste atributo Tipo, e selecionar uma opção válida. Após, poderá salvar e prosseguir com o envio validando se ocorre com sucesso."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "Tiktok",
+    "children": [
+      {
+        "label": "Envio de produto",
+        "children": [
+          {
+            "label": "A imagem X deve ser do tipo JPG, JPEG, PNG, WEBP, HEIC ou BMP.",
+            "solution": "Verificar se não tem no gerenciar imagens não tem imagens internas e  \n☰ > Cadastros > Produtos > Entre no SKU > Dados complementares > Gerenciar imagens"
+          },
+          {
+            "label": "Houve um erro ao realizar a requisição. Your entry must contain either 8, 12, 13, or 14 digits, or 9 digits ending in capital X",
+            "solution": "O GTIN que não foi aceito pelo Tiktok. Retira do cadastro do produto, envia novamente e depois inclui o GTIN no produto novamente"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "Tray",
+    "children": [
+      {
+        "label": "Envio de produto",
+        "children": [
+          {
+            "label": "O produto**** possui imagens com tamanho maior que 350KB.",
+            "solution": "Para correção deste erro, indico que possa acessar o cadastro do produto em: menu > cadastros > produtos > clique sobre o produto > aba dados complementares > gerenciar imagens. Neste local, valide se uma das imagens inseridas possui mais de 350KB. \nÉ possível enviar até no máximo 6 imagens por produto, sendo até 6 imagens no produto pai e 6 em cada variação. Estas imagens passam por validação na plataforma antes de ficarem disponíveis, bem como o  tamanho das imagens deverá ser até 350 kb e dimensões de até 2000x2000 pixels. Desta forma, imagens fora deste padrão, não serão aceitas pela plataforma, demandando o ajuste no local citado acima (gerenciar imagens). Após, poderá testar novo envio do produto validando se ocorre com sucesso."
+          },
+          {
+            "label": "Não foi possível criar o produto com referência: ********\nCod: 400. Erro: Bad Request. Causas:{weight:[You must provide the weight.]}.",
+            "solution": "Para correção deste erro, indico que possa acessar o cadastro do produto em: menu > cadastros > produtos > clique sobre o produto > aba dados complementares > gerenciar imagens. Neste local, valide se uma das imagens inseridas possui mais de 350KB. \nÉ possível enviar até no máximo 6 imagens por produto, sendo até 6 imagens no produto pai e 6 em cada variação. Estas imagens passam por validação na plataforma antes de ficarem disponíveis, bem como o  tamanho das imagens deverá ser até 350 kb e dimensões de até 2000x2000 pixels. Desta forma, imagens fora deste padrão, não serão aceitas pela plataforma, demandando o ajuste no local citado acima (gerenciar imagens). Após, poderá testar novo envio do produto validando se ocorre com sucesso."
+          },
+          {
+            "label": "Não foi possível encontrar o produto com referência: XXXXXXXX",
+            "solution": "Esse erro indica que o identificador de anúncio mapeado ao produto não existe, por este motivo não é possível prosseguir com o envio.\nCaso já tenha esse produto cadastrado na plataforma poderá acessar em: Menu > Cadastros > Produtos > clicar nesse produto em questão > editar > na aba anúncios > editar o anúncio e no campo Identificador, informar a Referência do produto que consta na Tray. Salvando o mapeamento e o cadastro do produto e prosseguindo com uma nova tentativa de envio à Tray.\nJá se o seu produto ainda não consta na Tray (tratando-se de um novo envio), poderá acessar Menu > Cadastros > Produtos > clicar nesse produto em questão > editar > na aba anúncios > remover o mapeamento existente com erro e salvando o cadastro. Em seguida, realizando o envio do produto do ERP para a plataforma do zero, para que seja criado como novo por lá."
+          },
+          {
+            "label": "Cod: 400. Erro: Bad Request. Causas:{slug:[This value has already been taken.]}.",
+            "solution": "Acessar o cadastro do produto > editar > aba dados complementares > no campo Slug, remover o slug informado ou alterar o que está preenchido, pois o erro retornado informa que a informação adicionada já está sendo utilizada em outros anúncios da Tray"
+          }          
+        ]
+      }
+    ]
+  }
+]

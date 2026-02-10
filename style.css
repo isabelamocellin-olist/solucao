@@ -1,0 +1,111 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body { 
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; 
+    background-color: #f5f7fa; 
+    height: 100vh;
+    overflow: hidden;
+}
+
+.app-wrapper {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+
+.columns-container {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    background: #ffffff;
+    box-shadow: inset -10px 0 20px -15px rgba(0,0,0,0.1);
+}
+
+.column {
+    width: 300px;
+    min-width: 300px;
+    border-right: 1px solid #edf2f7;
+    display: flex;
+    flex-direction: column;
+    animation: fadeInColumn 0.25s ease-out;
+}
+
+@keyframes fadeInColumn {
+    from { opacity: 0; transform: translateX(-15px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.column-header {
+    padding: 18px 20px;
+    background: #fcfdfe;
+    border-bottom: 1px solid #edf2f7;
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: #4a5568;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.column-options {
+    padding: 8px;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.nav-btn {
+    width: 100%;
+    text-align: left;
+    padding: 14px 16px;
+    margin-bottom: 4px;
+    border: none;
+    background: transparent;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #2d3748;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-btn:hover { background: #edf6ff; color: #3182ce; }
+
+.nav-btn.active {
+    background: #3182ce;
+    color: #ffffff;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.nav-btn::after {
+    content: '→';
+    font-size: 16px;
+    opacity: 0.3;
+}
+
+.nav-btn.active::after { opacity: 1; color: white; }
+.nav-btn.is-final::after { content: '📄'; opacity: 0.5; font-size: 12px; }
+
+.solution-panel {
+    flex: 1;
+    background: #f8fafc;
+    padding: 40px;
+    overflow-y: auto;
+    display: flex;
+    justify-content: center;
+}
+
+#solution-content { width: 100%; max-width: 750px; }
+
+.solution-card {
+    background: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.04), 0 2px 5px rgba(0,0,0,0.03);
+    border-top: 6px solid #48bb78;
+}
+
+.solution-card h2 { margin-bottom: 25px; color: #1a202c; font-size: 1.6rem; border-bottom: 1px solid #f1f5f9; padding-bottom: 15px; }
+.solution-text { line-height: 1.8; color: #4a5568; white-space: pre-wrap; font-size: 16px; }
+
+.empty-state { text-align: center; margin-top: 35vh; color: #a0aec0; }
