@@ -343,5 +343,197 @@
         ]
       }
     ]
+  },
+  {
+    "label": "Dafiti",
+    "children": [
+      {
+        "label": "Envio de produto",
+        "children": [
+          {
+            "label": "brandId: There is no 'Brand' with that brandId in our system",
+            "solution": "\nEsse erro se refere a marca do seu produto, ela precisa existir na Dafiti com o mesmo nome que tem aqui, caso não existir não conseguirá enviar o produto com a marca, caso a marca já exista na Dafiti e esteja exatamente igual a sua marca aqui, verifique com os mesmos o motivo de não aceitarem a marca enviada ou teste o envio removendo a marca"
+          },
+          {
+            "label": "primaryCategoryId: Primary category must be on a lower level",
+            "solution": "Esse erro se refere ao mapeamento da categoria, em menu > início > integrações > Dafiti > na aba mapeamentos > Categorias. O erro fala que você não mapeou com uma categoria no último nível, procure a categoria desse produto e clique sobre o elo de corrente no lado direito para mapear, precisará abrir a árvore de categorias da Dafiti até o último nível, selecionando uma categoria para mapear que não possa ser aberta em outras."
+          }         
+        ]
+      }
+    ]
+  },
+  {
+    "label": "WooCommerce",
+    "children": [
+      {
+        "label": "Envio de produto",
+        "children": [
+          {
+            "label": "cURL Error: Operation timed out after 60002 milliseconds with 0 bytes received",
+            "solution": "Essa condição é causada pelo fato de que o limite do seu site está configurado para bloqueio da operação após determinado tempo. Neste caso você precisa verificar com o responsável técnico do site para aumentar o tempo de resposta. Assim será possível concluir o envio dos produtos com sucesso."
+          }      
+        ]
+      }
+    ]
+  },
+  {
+    "label": "Vtex",
+    "children": [
+      {
+        "label": "Envio de produto",
+        "children": [
+          {
+            "label": "Erro não identificado",
+            "solution": "Esse erro genérico na Vtex pode estar ligado a algumas causas, principalmente ao custo do produto ou à configuração da sua URL de loja.\nComo corrigir?\n1. Verifique o Custo do Produto\nA Vtex não aceita o envio de produtos com custo zerado.\nInsira o custo no cadastro do seu produto.\nEm seguida, acesse menu > configurações > E-commerce > Integrações > Vtex.\nVá para a aba Gestão de preços.\nAtive a opção Enviar preço de custo (Ao enviar preços para a VTEX).\nEnvie o produto novamente.\n2. Verifique o Formato da URL da Loja\nO erro também pode estar relacionado ao formato da URL da sua loja, que precisa seguir um padrão específico.\nA URL deve estar no seguinte formato: https://[nomedaconta].vtexcommercestable.com.br\nPara analisar a URL, acesse menu > início > Integrações.\nClique na sua integração com a VTEX.\nClique em Gerenciar (localizado acima da conexão da VTEX).\nValide se o campo URL da Loja está no padrão correto.\nApós realizar os ajustes, tente enviar o produto novamente."
+          },
+          {
+            "label": "Erro parsing WSDL: Couldn’t load from",
+            "solution": "Para corrigir esse erro ative a opção “Utilizar REST no envio de produtos”."
+          }    
+        ]
+      }
+    ]
+  },
+  {
+    "label": "Vnda",
+    "children": [
+      {
+        "label": "Envio de produto",
+        "children": [
+          {
+            "label": "Erro desconhecido na comunicação com a Olist Vnda, tente novamente",
+            "solution": "Esse erro geralmente acontece quando o SKU usado como referência já existe na VNDA.\nComo corrigir?\nPara correção verifique:\nCategoria – Está mapeada corretamente até o último nível?\nVariações – Se for um produto com variações, elas estão mapeadas?\nDuplicidade de SKU:\nVerifique se o SKU do produto pai ou de alguma variação já está cadastrado na VNDA.\nPode ocorrer que o SKU do pai não existe na VNDA, mas o SKU de uma variação sim. \nSe um desses pontos apresentar problema, corrija e tente enviar novamente."
+          },
+          {
+            "label": "Erro Properties já está em uso no envio de produto com variações",
+            "solution": "Ao enviar um produto com variações para a Vnda, pode aparecer a seguinte mensagem de erro:\n“NOME DA VARIAÇÃO | # properties […] já está em uso”\nEsse erro indica que os valores das grades de variação enviados pelo ERP da Olist não estão alinhados como foram configurados ou associados no painel da Vnda.\nComo corrigir\nAcesse o painel da Vnda.\nLocalize o produto que apresentou o erro.\nEdite as variações do produto, garantindo que estejam alocadas corretamente nas grades correspondentes.\nSalve as alterações.\nVolte ao ERP da Olist e realize um novo envio do produto."
+          }    
+        ]
+      }
+    ]
+  },
+  {
+    "label": "Carrefour",
+    "children": [
+      {
+        "label": "Envio de produto",
+        "children": [
+          {
+            "label": "Erro: VERIFICAR_COD_HOMOLOGACAO_CERTIFICACAO | Necessário verificar código homologação/certificação – The product requires an Anatel certification code!",
+            "solution": "Esse erro ocorre porque você precisa informar o código de certificação da Anatel na ficha técnica do seu produto.\nComo corrigir?\nPara resolver, siga estes passos:\nAcesse o cadastro do produto: menu > cadastros > produtos.\nAbra o item desejado.\nNa aba Ficha Técnica, localize o atributo Certificado Tiny Anatel.\nAo lado dele, insira o código correspondente ao certificado Anatel do produto.\nSalve a alteração no cadastro.\nTente enviar o produto novamente."
+          },
+          {
+            "label": "Erro: MCM-05000|The ‘variantImage1’ attribute is required.",
+            "solution": "Esse erro geralmente ocorre ao enviar um produto para o Carrefour e está relacionado à extensão das imagens do produto.\nComo corrigir?\nÉ necessário verificar se as imagens cadastradas nos produtos ou nas URLs externas estão em um dos seguintes formatos: PNG, JPG ou JPEG.\nPara resolver, siga estes passos:\nAcesse o cadastro do produto que apresentou erro.\nLocalize as imagens.\nVerifique se estão em um dos formatos permitidos: PNG, JPG ou JPEG.\nCaso a imagem esteja em formato WEBP, converta-a para um formato válido.\nEnvie a nova imagem e tente reenviar o produto.\nAtenção: a extensão WEBP não é validada pelo Carrefour."
+          }  
+        ]
+      }
+    ]
+  },
+  {
+    "label": "Aliexpress",
+    "children": [
+      {
+        "label": "Envio de produto",
+        "children": [
+          {
+            "label": "Remote service error Process image system error",
+            "solution": "Essa situação ocorre devido a um problema na própria plataforma do AliExpress.\nComo corrigir?\nEntrar em contato com o suporte do AliExpress para verificar a causa do erro;\nTentar alterar as imagens do produto e realizar um novo envio."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "Wbuy",
+    "children": [
+      {
+        "label": "Envio de produto",
+        "children": [
+          {
+            "label": "erro no envio de produtos devido à palavra System na descrição",
+            "solution": "Ao enviar produtos para a Wbuy, é importante se atentar a possíveis falhas.\nA descrição complementar do produto não deve conter a palavra System. Caso ela esteja presente, remova-a antes de enviar o produto novamente. Essa ação garantirá o sucesso no envio."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "Yampi",
+    "children": [
+      {
+        "label": "Envio de produto",
+        "children": [
+          {
+            "label": "Esse parent id não está cadastrado",
+            "solution": "O erro ocorre quando o envio de um produto para a Yampi falha devido à categoria do produto não estar preenchida.\nComo corrigir?\nPreencha a categoria do produto no cadastro.\nApós a correção, teste o envio novamente."
+          },
+          {
+            "label": "Não foi possível enviar o produto com sku: [SKU]. Slug inválida",
+            "solution": "Esse erro aparece quando o campo Slug no cadastro do seu produto contém espaços ou letras maiúsculas. A Yampi exige que a slug seja formatada corretamente.\nComo corrigir?\nPara resolver, siga estes passos:\nAcesse o cadastro do seu produto.\nClique na aba  Dados Complementares.\nLocalize o campo Slug.\nAjuste a slug:\nSubstitua os espaços por hífens (-).\nUtilize somente letras minúsculas.\nExemplo: se sua slug era Nome Do Produto, mude para nome-do-produto.\nSalve o item.\nTente enviar o produto novamente."
+          },
+          {
+            "label": "O valor especificado já está em uso",
+            "solution": "Esse erro ocorre porque os dados que você está enviando (provavelmente o SKU ou GTIN) já existem na Yampi. Isso significa que a plataforma não aceita informações duplicadas.\nComo corrigir?\nPara resolver, siga estes passos:\nVerifique SKU e GTIN:\nConfirme se o SKU e o GTIN do seu produto já estão cadastrados na Yampi. Se sim, você precisará ajustar um desses códigos para que seja único.\nVerifique a Marca:\nSe SKU e GTIN não são o problema, observe a marca do produto. Ela pode estar cadastrada na Yampi de forma similar, mas com pequenas diferenças em relação ao que você tem no seu sistema (como um espaço extra, caractere especial, etc.). Ajuste o nome da marca para ser exatamente igual ao que já existe ou ao que será criado na Yampi.\nApós fazer esses ajustes, realize um novo envio do produto para a Yampi e verifique se o processo acontece com sucesso."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "Magalu",
+    "children": [
+      {
+        "label": "Envio de produto",
+        "children": [
+          {
+            "label": "o campo 'brand' é obrigatório",
+            "solution": "Para ajustar esse erro, acesse em cadastros > produtos > edite o item desejado e na aba dados complementares preencha o campo marca. Após salvar realize novamente o envio do produto."
+          },
+          {
+            "label": "campos incorretos ou faltando na requisição",
+            "solution": "Essa mensagem da Magalu ocorre por causa da validação das imagens do seu produto.\nComo corrigir?\nAcesse Início > Integrações > Magalu.\nVá para a aba Produtos > Enviar Produtos.\nAltere a opção Enviar imagens dos produtos ao sincronizar para SIM.\nSalve."
+          },
+          {
+            "label": "IdProduct: {IdProduct:Somente \u00e9 permitido caracteres alfanum\u00e9ricos, h\u00edfen e ponto.}",
+            "solution": "Esse erro acontece quando o campo SKU do produto contém caracteres especiais que não são aceitos pelo sistema, como acentos, cedilha, espaço ou símbolos.\nExemplo: SKU: CHÁ03 → o caractere Á gera o bloqueio.\nComo corrigir?\nAcesse o cadastro do produto.\nNo campo SKU, verifique se existe algum caractere especial.\nSubstitua esses caracteres por letras ou números simples, utilizando apenas:\nLetras (A–Z, a–z)\nNúmeros (0–9)\nHífen (-)\nPonto (.)\nExemplo de correção:\nAntes: CHÁ03\nDepois: CHA03\nSalve a alteração e tente novamente o envio.\nAssim, o SKU será aceito corretamente e o processo poderá seguir sem erros."
+          },
+          {
+            "label": "Recurso não encontrado",
+            "solution": "Essa mensagem está relacionada a problemas com os identificadores do anúncio ou com o relacionamento entre o anúncio e o produto no seu sistema.\nComo corrigir?\nValide os identificadores dos seus anúncios.\nSe necessário, importe o anúncio novamente.\nVá em menu > cadastros > Anúncios > Magalu > importar anúncio.\nSelecione um em específico para importar apenas o anúncio com problema.\nApós importar, relacione o anúncio novamente ao produto que você já tem cadastrado."
+          },
+          {
+            "label": "Não é permitido alterar o IdProduct de um SKU",
+            "solution": "Este erro ocorre quando o seller tenta alterar o identificador de um anúncio já mapeado e tenta enviá-lo para a plataforma. \nGeralmente, eles entendem que, como o produto está mapeado, podem alterar o identificador aqui no Olist ERP para modificar o SKU do produto na Magalu, mas não é possível.\nO processo deve ser feito lá e, em seguida, importar novamente para o Olist ERP."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "Nuvemshop",
+    "children": [
+      {
+        "label": "Envio de produto",
+        "children": [
+          {
+            "label": "422 - Unprocessable Entity - Variant values should not be repeated",
+            "solution": "Esse erro acontece quando você tenta criar um novo anúncio na Nuvemshop e a variação já existe para o produto, mas o sistema não consegue identificá-la por falta do identificador nas variações.\nPara resolver, siga estes passos:\nExclua os anúncios incorretos das variações:\nAcesse menu > cadastro > produtos e clique sobre o produto.\nNa a aba Anúncios > editar.\nImporte o produto novamente:\nAcesse menu > cadastro > Produtos > receber do e-commerce > anúncio individual.\nInforme o identificador do produto pai."
+          },
+          {
+            "label": "erro: “504 – Erro não identificado”",
+            "solution": "Acontece quando a Nuvemshop não consegue processar as imagens do seu produto.\nRemova as imagens do produto\nSalve e envie-o sem as imagens\nAdicione as imagens novamente"
+          },
+          {
+            "label": "422 - Unprocessable Entity - Validation error",
+            "solution": "Essa situação ocorre quando o Slug enviado pelo produto no ERP já está em uso por outro item na sua loja NuvemShop. O Slug é o identificador que compõe a URL e torna cada produto único.\nAcesse o produto que apresenta o erro no seu ERP em menu > cadastros > Produtos.\nVá para a aba dados complementares > editar.\nLocalize o campo Slug e substitua o texto atual por um novo identificador que ainda não esteja em uso na sua loja.\nApós o ajuste, clique em salvar e envie o produto para o e-commerce novamente.\nVerifique se a integração foi concluída e se o produto aparece corretamente em sua loja NuvemShop."
+          },
+          {
+            "label": "422 - Unprocessable Entity - Variants cannot be repeated",
+            "solution": "Essa situação acontece quando você tenta criar um novo anúncio, mas o SKU do produto já existe na sua Nuvemshop. Isso impede que um novo anúncio seja enviado do zero com a mesma informação.\nObserve que, geralmente, o problema está na divergência de mapeamento: o produto pai pode ter um identificador mapeado na aba Anúncios (dentro do cadastro do produto), mas as variações não.\nVocê tem duas opções, dependendo se o produto já existe na Nuvemshop ou não:\n1. Se o produto JÁ existe na Nuvemshop:\nVocê deve mapear o anúncio existente na Nuvemshop com o produto no ERP.\nAcesse o seu produto: menu > cadastros > Produtos > clique sobre o produto.\nVá para a aba Anúncios > Editar.\nApague os mapeamentos com erro usando o ícone da lixeira e salve o cadastro.\nAinda na tela de anúncio do produto, clique em Editar > Adicionar anúncio.\nSelecione E-commerce e informe o Identificador do anúncio correspondente na Nuvemshop (copie o identificador do produto pai, que está na aba Anúncios do produto pai. Em seguida, reimporte em Cadastros > Importar Anúncios > Um único, e cole o ID).\nAplique e salve.\nRepita este processo para as variações do seu produto: preencha a plataforma e o identificador, e selecione o Identificador do produto pai antes de aplicar e salvar.\n2. Se o produto NÃO existe na Nuvemshop:\nVocê precisa remover o mapeamento existente e enviar o anúncio como novo.\nAcesse o cadastro do produto pai: menu > cadastros > Produtos > clique sobre o produto.\nVá para a aba Anúncios > Editar.\nRemova o anúncio da plataforma.\nEnvie o produto novamente. Ele será cadastrado como um novo anúncio na Nuvemshop."
+          }
+        ]
+      }
+    ]
   }
 ]
