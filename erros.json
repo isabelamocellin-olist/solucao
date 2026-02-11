@@ -66,10 +66,6 @@
             "solution": "No painel da Shopee: > Clique em Loja à esquerda da tela > Clique em Perfil da loja > Clique na aba Configurações da NF-e > Selecione: Outros"
           },
           {
-            "label": "product.error_update_price_fail Update price failed, please try later. The price of the most expensive variation divided by the price(including both oringinal price and promotion price) of the cheapest variation is out of limit",
-            "solution": "Atualmente, a Shopee estipula um limite de diferença entre os preços das variações dos produtos.\n Eles validam calculando da seguinte maneira: pegam o maior valor e dividem pelo menor, e o resultado não pode ser igual a x valor limite que eles determinam para aquele produto.\nPor exemplo:\nTemos um produto com 3 variações P, M e G, com os seguintes valores:\nP: R$ 10,00\nM: 35,00\nG: 60,00\nSe considerarmos que o limite da Shopee para este produto for 4, quando este produto for enviado a Shopee, será retornado erro, visto que se aplicarmos o cálculo: 60/10 teremos o resultado = 6.\nOBS: Esse é apenas um exemplo, os produtos podem ter limites diferentes do pontuado. É necessário adaptar para cada situação."
-          },
-          {
             "label": "product.error_invalid_category Invalid category ID",
             "solution": "Esse retorno ocorre quando vamos tentar pegar as marcas dentro da Shopee.\nAcontece que quando vamos tentar pegar as marcas que estão na categoria em questão, a Shopee retorna um erro informando que o ID da categoria está inválido, mas essa categoria existe na Shopee.\nAntes de acionarmos o time de analistas ou time técnico, cabe validar nesse site, se a categoria é válida:\nhttps://seller.shopee.com.br/edu/category-guide/?keyword=100861\nPodemos obter o ID da categoria através do mapeamento de categorias dentro da integração."
           },
@@ -78,12 +74,36 @@
             "solution": "Este erro ocorre, pois a categoria selecionada no produto, é necessário o preenchimento do campo Nr de homologação.\nSugerimos para o seller preencher este campo no card do anúncio, salvar e depois enviar novamente."
           },
           {
-            "label": "product.error_image_unavailable Please fill in the mandatory field product image",
+            "label": "erro array items[0,1] must be unique; images: array items[0,2] must be unique",
             "solution": "Esse erro normalmente acontece quando a Shopee recusa a imagem durante o envio do anúncio. Nesses casos, é importante verificar se a imagem está nos formatos jpg, png ou jpeg, e se suas dimensões estão dentro do limite de 500x500 pixels. Além disso, você pode solicitar ao seller que redimensione a imagem e altere o formato de jpeg para png para reenviar novamente."
           },
           {
             "label": "product.error_invalid_logistic_info At least one shipping channel must be enabled for the product. Please turn one on.",
             "solution": "Selecione um canal de envio para enviar para a Shopee no rascunho do anúncio."
+          },
+          {
+            "label": "product.error_busi The dimension length precision should be integer",
+            "solution": "Esse erro significa que a Shopee não aceita números decimais (números quebrados) nos campos de dimensão do seu produto. As dimensões devem ser números inteiros."
+          },
+          {
+            "label": "product.error_busi This input must not be the same value as CFOP Mesmo Estado input",
+            "solution": "Esse erro pode aparecer ao usar o faturador da Shopee. Ele ocorre porque a plataforma exige o envio de algumas informações fiscais no momento do anúncio, e essas informações não são transmitidas automaticamente pelo sistema.1. Ajustar o faturador na Shopee\nAcesse as configurações da Shopee e altere o faturador para “Outros”.\nEnvie o produto normalmente.\nDepois que o envio for concluído, você pode voltar à configuração original do faturador.\n2. Criar o anúncio direto na Shopee\nCrie o anúncio diretamente na sua conta da Shopee.\nEm seguida, importe o anúncio para o sistema.\nEssas ações permitem que o envio seja concluído sem o bloqueio causado pela validação fiscal automática da Shopee."
+          },
+          {
+            "label": "product.error_busi Please input the tax information because the shop is invoice issued by Shopee",
+            "solution": "Esse erro aparece porque sua loja na Shopee está configurada para usar o faturador próprio deles. Com essa configuração, a Shopee exige dados fiscais dos produtos ao criar anúncios, e esses dados (como NCMs e regras tributárias) não são enviados automaticamente no momento da criação do anúncio.\nPara resolver, você precisa desabilitar o faturador da Shopee temporariamente. Siga estes passos:\nAcesse a Central do Vendedor na Shopee.\nClique em Perfil da Loja > Configurações da NF-e.\nAltere a parametrização de Emissor da Nota Fiscal de Shopee emite para Outros.\nApós fazer essa alteração, envie o anúncio novamente. Se desejar, você pode reativar o faturador da Shopee depois que o anúncio for publicado com sucesso."
+          },
+          {
+            "label": "product.error_inner Update item failed item upload controller tier option len no pass : variation option name length is greater than max limit",
+            "solution": "Ao enviar um produto com variações para a Shopee, o sistema envia a descrição do produto principal mais a descrição da variação. No entanto, a Shopee não aceita que a descrição da variação tenha mais de 30 caracteres.\nPrimeiro, remova o produto já cadastrado na Shopee.\nNo ERP da Olist, acesse o cadastro de cada variação e do produto principal.\nNa aba Anúncios, clique no ícone da lixeira para desvincular o anúncio da Shopee.\nDepois de desvincular, transforme a variação em um produto simples.\nAjuste a descrição, certificando-se de que não tenha mais de 30 caracteres.\nSelecione a caixa de seleção do produto simples.\nClique em mais ações (...) e escolha a opção Transformar em variações.\nVincule-o novamente ao produto principal.\nPor fim, tente um novo envio do produto para a Shopee."
+          },
+          {
+            "label": "product.error_busi Variation name length should be within 1-30 . Erro ao enviar variação. product.error_busi Variation name length should be within 1-30",
+            "solution": "Essa mensagem indica que o nome da sua variação ultrapassa o limite de 30 caracteres permitido pela Shopee.\nComo corrigir?\nPara resolver, revise a descrição do seu produto e suas variações. Ajuste-as para que o nome das variações não exceda 30 caracteres. Depois, envie novamente."
+          },
+          {
+            "label": "count of tier_variation option should be under 50",
+            "solution": "Esse erro significa que a Shopee não aceita anúncio com variações acima de 50 opções.\nComo funciona\n1. Para produtos com uma única variação (ex: cor):\nO número máximo é de 50 opções.\nExemplo: Se o seu produto tem apenas a variação Cor, você pode cadastrar até 50 cores diferentes.\n2. Para produtos com duas variações (ex: cor e tamanho):\nA multiplicação do número de opções das duas variações não pode ser superior a 50.\nExemplo: se o seu produto tem as variações Cor e Tamanho, você pode ter 10 cores e 5 tamanhos, pois 10×5=50.\nImportante: a validação é feita pela quantidade de valores cadastrados, e não pela quantidade de variações."
           }
         ]
       },
@@ -91,12 +111,17 @@
         "label": "Atualização de estoque",
         "children": [
           {
-            "label": "Erro Genérico de Estoque",
-            "solution": "Verifique se o SKU no sistema corresponde exatamente ao SKU na Shopee."
-          },
-          {
             "label": "Erro ao enviar estoque: null",
             "solution": "Esse erro ocorre quando em sua integração na aba 'fulfillment' está marcado o mesmo depósito de sua integração padrão."
+          }
+        ]
+      },
+      {
+        "label": "Atualização de preço",
+        "children": [
+          {
+            "label": "product.error_update_price_fail Update price failed, please try later. The price of the most expensive variation divided by the price(including both oringinal price and promotion price) of the cheapest variation is out of limit",
+            "solution": "Atualmente, a Shopee estipula um limite de diferença entre os preços das variações dos produtos.\n Eles validam calculando da seguinte maneira: pegam o maior valor e dividem pelo menor, e o resultado não pode ser igual a x valor limite que eles determinam para aquele produto.\nPor exemplo:\nTemos um produto com 3 variações P, M e G, com os seguintes valores:\nP: R$ 10,00\nM: 35,00\nG: 60,00\nSe considerarmos que o limite da Shopee para este produto for 4, quando este produto for enviado a Shopee, será retornado erro, visto que se aplicarmos o cálculo: 60/10 teremos o resultado = 6.\nOBS: Esse é apenas um exemplo, os produtos podem ter limites diferentes do pontuado. É necessário adaptar para cada situação."
           }
         ]
       },
@@ -106,6 +131,19 @@
           {
             "label": "Erro Packages can not download together ao concluir expedição",
             "solution": "Ao criar um agrupamento de envio na expedição para a Shopee, é necessário que os pedidos pertençam à mesma transportadora da Shopee Envios. Por exemplo:\nPedidos enviados via Shopee Envios pelos Correios só podem ser agrupados com outros pedidos enviados pelos Correios na Shopee Envios. Não é possível agrupá-los com pedidos enviados por outras transportadoras, como, por exemplo, a Sequoia.\nSe esse erro ocorrer ao solicitar a impressão das etiquetas, significa que há pedidos de diferentes transportadoras da Shopee Envios agrupados na mesma expedição."
+          }
+        ]
+      },
+      {
+        "label": "Envio de dados fiscais",
+        "children": [
+          {
+            "label": "Não é permitido o envio de dados fiscais para a logística desse pedido",
+            "solution": "Algumas formas de envio utilizadas na Shopee não aceitam o envio de dados fiscais (XML da NF-e) enviados pelo ERP. Essa restrição é uma regra imposta pela Shopee para certos serviços logísticos — sobretudo os atrelados aos Correios — e não um erro do ERP.\nMensagem de erro comum exibida no fluxo: “O status do pedido na Shopee é inválido para fazer o envio de dados fiscais… ou possui um serviço dos Correios vinculado. Esse método não permite o envio das notas fiscais nem manualmente, nem automaticamente.\nPasso a passo — Procedimento manual recomendado\nEmita a NF-e no ERP: conclua o fluxo de faturamento e verifique que a nota esteja com status Autorizada.\nBaixe o XML da nota: no menu de Notas Fiscais de Saída, localize a NF-e e faça o download do arquivo XML.\nAcesse a Central do Vendedor da Shopee: entre na conta da loja e vá até a lista de Pedidos.\nLocalize o pedido com logística bloqueada: abra o pedido que usa Correios, Pegaki ou similar.\nCarregue o XML manualmente: utilize a opção Carregar dados fiscais ou Upload de nota fiscal e anexe o XML baixado do ERP.\nConfirme a validação: aguarde a Shopee validar o arquivo — a liberação do pedido depende dessa validação."
+          },
+          {
+            "label": "O status deste pedido no e-commerce não permite o envio de dados fiscais",
+            "solution": "A Shopee só aceita receber dados fiscais (NFe) quando o pedido está em um destes status:\nINVOICE_PENDING — pendente, não pago;\nREADY_TO_SHIP — pronto para envio.\nSe estiver em qualquer outro status, a plataforma bloqueia o recebimento dos dados fiscais.\nPor que acontece?\nO envio foi feito pelo ERP da Olist enquanto o pedido, na Shopee, não estava em um status elegível (INVOICE_PENDING ou READY_TO_SHIP).\nComo corrigir?\nVerifique o status na Shopee.\nNo detalhe do pedido, confirme se está em INVOICE_PENDING ou READY_TO_SHIP.\nAjuste o fluxo do pedido na Shopee, se necessário.\nRegularize/aguarde o pagamento.\nAvance o fluxo operacional até Pronto para envio.\nReenvie os dados fiscais pelo ERP da Olist.\nAbra o pedido no ERP → opção Enviar dados fiscais.\nConfirme a sincronização.\nNo pedido da Shopee, verifique se a NFe foi vinculada corretamente."
           }
         ]
       }
@@ -138,8 +176,8 @@
             "solution": "Este erro ocorre quando a tabela de medidas do Mercado Livre não foi inserida ou se foi inserida, não está com o valor correto, igual ao da variação.\nVerificar se a tabela de medidas foi inserida.\nVerificar se a tabela de medidas inserida no anúncio contém o mesmo valor da variação, ou seja, variação 38, tabela 38. Não pode ser 38BR, por exemplo.\nCaso a tabela não esteja aparecendo, poderá verificar através do filtro de gênero.\nSe a tabela de medidas estiver com um valor incorreto, o vendedor precisará corrigir o valor da tabela diretamente no Mercado Livre e depois inserir no anúncio."
           },
           {
-            "label": "Atributos repetidos na variação",
-            "solution": "Esse erro acontece quando enviamos um anúncio para o Mercado Livre e os campos SKU, GTIN ou Cor Principal estão preenchidos de forma incorreta, ou repetida.\nComo Corrigir o Erro:\nSempre que esse erro ocorrer, siga os passos abaixo:\nAcesse a Ficha Técnica do Anúncio: Localize o anúncio que apresentou o erro.\nAjuste os Atributos: Nos campos SKU, GTIN e Cor Principal (se aplicável), altere o valor para Não informado.\nReenvie o Anúncio: Após fazer essas alterações, tente enviar o anúncio novamente.\nEsses ajustes garantirão que o erro de atributos repetidos não ocorra mais, permitindo o envio correto do anúncio."
+            "label": "Preço inválido ou não preenchido",
+            "solution": "Essa situação ocorre quando o anúncio está com um preço inferior a R$ 8,00. Atualmente, o Mercado Livre aceita o envio de anúncios com preço igual ou superior a R$ 8,00.\nPara resolver, siga estes passos:\nAcesse o menu > cadastros > Produtos.\nSelecione o produto e, na aba dados Gerais, clique em editar.\nAltere o campo Preço de venda.\nClique em salvar."
           },
           {
             "label": "Atributos obrigatórios e com variações",
@@ -160,6 +198,42 @@
           {
             "label": "Tempo de garantia inválido, informe somente o número seguido por dias, meses ou anos. ",
             "solution": "Para corrigir o erro garantia inválida retornado pelo Mercado Livre, siga os passos abaixo:\nPasso a passo para correção:\nAcesse: Menu > Cadastros > Produtos > Selecione o produto que apresentou o erro > Vá até a aba Outros e clique em Garantias > Insira apenas o valor numérico correspondente ao período da garantia, como por exemplo: 1 ou 2 (referente a meses) > Salve as alterações.\nApós realizar essa correção, envie novamente o produto para a plataforma."
+          },
+          {
+            "label": "Attribute [UNIT_TYPE] is not valid, item values [(null:***)]",
+            "solution": "Você pode ajustar o preenchimento ou remover o atributo UNIT_TYPE, já que ele não é obrigatório. Siga estes passos:\nVá em menu > cadastros > Produtos.\nClique sobre o produto que está com o erro.\nAcesse a aba Anúncios e clique em Editar.\nClique em Editar ao lado do anúncio em questão.\nAjuste ou remova o atributo UNIT_TYPE.\nClique em aplicar."
+          },
+          {
+            "label": "a quantidade em estoque do anúncio não pode ser alterada, o produto possui ofertas",
+            "solution": "Essa mensagem indica quando há uma diferença na forma como seu anúncio e seu produto estão estruturados. Para que a comunicação e a vinculação entre eles funcionem, as estruturas precisam ser iguais.\nAjuste a importação:\nVá em início > Integrações > Mercado Livre.\nClique na aba Produtos > Receber produtos.\nHabilite a opção Importar anúncios com uma variação como anúncios simples.\nSalve.\nImporte novamente o anúncio:\nCadastros > anúncios > Mercado Livre, clique no menu (...) do anúncio e escolha importar anúncio."
+          },
+          {
+            "label": "Invalid catalog_product_id",
+            "solution": "O erro Invalid catalog_product_id significa que o código do produto que você usou no seu anúncio não foi encontrado no catálogo do Mercado Livre.\n1. Verifique se o produto já existe no Mercado Livre\nAcesse a plataforma do Mercado Livre e procure pelo seu produto.\nSe encontrar, use o mesmo identificador do catálogo para criar o seu anúncio. Assim, você garante que está usando um ID válido.\nSe não encontrar, o seu produto ainda não está no catálogo do Mercado Livre.\n2. Faça um novo envio para o Mercado Livre\nCrie um novo anúncio, preenchendo todas as informações do produto novamente, sem usar um ID de catálogo.\nO Mercado Livre vai criar um novo anúncio válido e gerenciar o código de produto automaticamente."
+          },
+          {
+            "label": "Error sending tax rules messages to MercadoLivre. Many errors. 1 embedded error, see errorlist property for details",
+            "solution": "Esse erro está ligado a natureza da operação fiscal.\nComo corrigir?\nPara resolver, acesse:\nA natureza de operação e verifique qual foi selecionada nas configurações do ML Full.\nO campo Observações padrões para notas desta operação deverá ser preenchido.\nApós isso Salve''."
+          },
+          {
+            "label": "Atributo Loja é inválido",
+            "solution": "Esse erro está ligado a um atributo cadastrado na sua conta que o Mercado Livre não está aceitando.\nComo corrigir?\nPara resolver, siga estes passos:\nAcesse menu > configurações.\nClique na aba Cadastros > Cadastros de Atributos.\nSe você encontrar o atributo Loja, defina-o como nenhum.\nApós o ajuste, tente enviar o produto novamente e valide se o processo ocorre com sucesso."
+          },
+          {
+            "label": "Garantia inválida",
+            "solution": "Esse erro ocorre porque a informação de garantia no seu produto não está no formato correto para o Mercado Livre.\nComo corrigir?\nPara resolver, siga estes passos:\nAcesse menu > cadastros > Produtos.\nAbra o cadastro do produto que apresentou o erro.\nAcesse a aba Outros.\nNo campo Garantia, insira apenas o valor numérico correspondente ao período da garantia. Por exemplo, digite 1 para 1 mês ou 12 para 12 meses.\nSalve as alterações.\nApós essa correção, envie o produto novamente para a plataforma."
+          },
+          {
+            "label": "Attribute UNITS_PER_PACKAGE is not a valid number",
+            "solution": "Esta situação significa que o valor informado no atributo unidades por pacote é inválido.\nPara corrigir:\nAcesse menu > cadastros > Produtos.\nClique para editar o produto em questão.\nVá até a aba anúncios e clique em editar, ao lado do ícone de lixeira, no anúncio correspondente ao Mercado Livre.\nAcesse a aba ficha técnica.\nNa coluna Valor, correspondente ao atributo UNITS_PER_PACKAGE, insira apenas a quantidade numérica."
+          },
+          {
+            "label": "You cannot create a variation without attribute_combinations",
+            "solution": "Esse erro significa que suas variações não estão mapeadas corretamente no Mercado Livre, ou que o nome da variação está gerando conflito.\nComo corrigir?\nSiga estes passos para ajustar o mapeamento das suas variações:\nAcesse menu > início > Integrações > Mercado Livre.\nClique na aba Mapeamentos > Variações.\nPara todas as variações do produto que você está tentando enviar, certifique-se de que a opção selecione está marcada em ambas as colunas de seleção.\nSalve a integração.\nAjuste o nome da sua grade de variação para que ela seja aceita pelo Mercado Livre. Por exemplo, se a grade é Cor, altere para um valor personalizado como Cores.\nReenvie o produto para o Mercado Livre, mantendo a estrutura de variações."
+          },
+          {
+            "label": "You cannot change attribute combinations if the variation has bids",
+            "solution": "Esse erro significa que seu anúncio no Mercado Livre já tem vendas associadas a ele, e por isso, você não pode criar novas variações diretamente pelo sistema.\nComo corrigir?\nPara resolver, você precisa adicionar as novas variações no painel do Mercado Livre e depois importar o anúncio atualizado. Siga estes passos:\nAdicione as novas variações diretamente no painel do Mercado Livre.\nApós fazer as alterações, importe o anúncio atualizado para o seu sistema:\nVá em cadastros > anúncios > Mercado Livre > importar anúncio.\nEscolha anúncio específico e informe o MLB (o identificador que fica na URL do seu anúncio quando você o abre no Mercado Livre).\nCom o anúncio reimportado, clique no menu de contexto (...) e relacione-o ao produto correspondente no seu sistema."
           }
         ]
       }
@@ -252,7 +326,11 @@
           {
             "label": "Atributos não informados",
             "solution": "Esse erro indica que o identificador de anúncio mapeado ao produto não existe, por este motivo não é possível prosseguir com o envio.\nCaso já tenha esse produto cadastrado na plataforma poderá acessar em: Menu > Cadastros > Produtos > clicar nesse produto em questão > editar > na aba anúncios > editar o anúncio e no campo Identificador, informar a Referência do produto que consta na Tray. Salvando o mapeamento e o cadastro do produto e prosseguindo com uma nova tentativa de envio à Tray.\nJá se o seu produto ainda não consta na Tray (tratando-se de um novo envio), poderá acessar Menu > Cadastros > Produtos > clicar nesse produto em questão > editar > na aba anúncios > remover o mapeamento existente com erro e salvando o cadastro. Em seguida, realizando o envio do produto do ERP para a plataforma do zero, para que seja criado como novo por lá."
-          }          
+          },
+          {
+            "label": "Remova qualquer marcação não compatível do atributo Descrição do artigo para garantir que seus dados atendam às diretrizes da Amazon: Não use HTML, JavaScript ou outros tipos de código nas páginas de detalhes do produto.",
+            "solution": "Verificar se o anúncio da Amazon está aceito, caso esteja, para atualizar no sistema exclua o anúncio no ERP e importe os anúncios novas da Amazon novamente"
+          }  
         ]
       },
       {
