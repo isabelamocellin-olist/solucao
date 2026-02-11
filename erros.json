@@ -80,6 +80,10 @@
           {
             "label": "product.error_image_unavailable Please fill in the mandatory field product image",
             "solution": "Esse erro normalmente acontece quando a Shopee recusa a imagem durante o envio do anúncio. Nesses casos, é importante verificar se a imagem está nos formatos jpg, png ou jpeg, e se suas dimensões estão dentro do limite de 500x500 pixels. Além disso, você pode solicitar ao seller que redimensione a imagem e altere o formato de jpeg para png para reenviar novamente."
+          },
+          {
+            "label": "product.error_invalid_logistic_info At least one shipping channel must be enabled for the product. Please turn one on.",
+            "solution": "Selecione um canal de envio para enviar para a Shopee no rascunho do anúncio."
           }
         ]
       },
@@ -227,6 +231,37 @@
             "label": "Cod: 400. Erro: Bad Request. Causas:{slug:[This value has already been taken.]}.",
             "solution": "Acessar o cadastro do produto > editar > aba dados complementares > no campo Slug, remover o slug informado ou alterar o que está preenchido, pois o erro retornado informa que a informação adicionada já está sendo utilizada em outros anúncios da Tray"
           }          
+        ]
+      }
+    ]
+  },
+  {
+    "label": "Amazon",
+    "children": [
+      {
+        "label": "Envio de produto",
+        "children": [
+          {
+            "label": "You exceeded your quota for the requested resource. (QuotaExceeded)",
+            "solution": "Esse erro indica que você ultrapassou o limite de requisições permitido pela Amazon. A plataforma limita as atualizações de estoque a 60 requisições por hora (ou 1 por minuto), o que é um limite bem baixo.\nVocê precisa aguardar e enviar as atualizações de estoque aos poucos. O sistema já possui rotinas que fazem o envio em lote, mas é crucial respeitar o limite da Amazon para evitar o erro. Tente realizar o envio de forma mais espaçada."
+          },
+          {
+            "label": "O SKU não forneceu todos os atributos necessários",
+            "solution": "Para corrigir, indico que envie novamente o anúncio e no momento do envio, edite o card do anúncio clicando sobre ele. Após, acesse em atributos > editar atributos.\nNessa nova tela, clique em ações > ver valores > validar e parsear. Assim, será identificado em destaque todos os campos de preenchimento obrigatório no anúncio."
+          },
+          {
+            "label": "Atributos não informados",
+            "solution": "Esse erro indica que o identificador de anúncio mapeado ao produto não existe, por este motivo não é possível prosseguir com o envio.\nCaso já tenha esse produto cadastrado na plataforma poderá acessar em: Menu > Cadastros > Produtos > clicar nesse produto em questão > editar > na aba anúncios > editar o anúncio e no campo Identificador, informar a Referência do produto que consta na Tray. Salvando o mapeamento e o cadastro do produto e prosseguindo com uma nova tentativa de envio à Tray.\nJá se o seu produto ainda não consta na Tray (tratando-se de um novo envio), poderá acessar Menu > Cadastros > Produtos > clicar nesse produto em questão > editar > na aba anúncios > remover o mapeamento existente com erro e salvando o cadastro. Em seguida, realizando o envio do produto do ERP para a plataforma do zero, para que seja criado como novo por lá."
+          }          
+        ]
+      },
+      {
+        "label": "Expedição",
+        "children": [
+          {
+            "label": "you don't have time slots available to schedule a package for this order",
+            "solution": "Ao tentar emitir a etiqueta, por causa do final do ano, a solução é agendar lá na amazon uma data para entrega"
+          }
         ]
       }
     ]
