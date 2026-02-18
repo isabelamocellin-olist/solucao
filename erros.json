@@ -104,6 +104,10 @@
           {
             "label": "count of tier_variation option should be under 50",
             "solution": "Esse erro significa que a Shopee não aceita anúncio com variações acima de 50 opções.\nComo funciona\n1. Para produtos com uma única variação (ex: cor):\nO número máximo é de 50 opções.\nExemplo: Se o seu produto tem apenas a variação Cor, você pode cadastrar até 50 cores diferentes.\n2. Para produtos com duas variações (ex: cor e tamanho):\nA multiplicação do número de opções das duas variações não pode ser superior a 50.\nExemplo: se o seu produto tem as variações Cor e Tamanho, você pode ter 10 cores e 5 tamanhos, pois 10×5=50.\nImportante: a validação é feita pela quantidade de valores cadastrados, e não pela quantidade de variações."
+          },
+          {
+            "label": "Ocorreu um erro ao buscar as variações do seu envio",
+            "solution": "Esse erro ocorre devido a quantidade de variações que o produto possui.\nInfelizmente, não há uma forma de corrigir por aqui, será necessário diminuir a quantidade de variações por produto para que ele seja enviado."
           }
         ]
       },
@@ -234,6 +238,14 @@
           {
             "label": "You cannot change attribute combinations if the variation has bids",
             "solution": "Esse erro significa que seu anúncio no Mercado Livre já tem vendas associadas a ele, e por isso, você não pode criar novas variações diretamente pelo sistema.\nComo corrigir?\nPara resolver, você precisa adicionar as novas variações no painel do Mercado Livre e depois importar o anúncio atualizado. Siga estes passos:\nAdicione as novas variações diretamente no painel do Mercado Livre.\nApós fazer as alterações, importe o anúncio atualizado para o seu sistema:\nVá em cadastros > anúncios > Mercado Livre > importar anúncio.\nEscolha anúncio específico e informe o MLB (o identificador que fica na URL do seu anúncio quando você o abre no Mercado Livre).\nCom o anúncio reimportado, clique no menu de contexto (...) e relacione-o ao produto correspondente no seu sistema."
+          },
+          {
+            "label": "Channel: Marketplace is restricted",
+            "solution": "Isto significa que o seu canal de venda possui alguma restrição, o qual está impossibilitando que seja anunciado. Com isto, é necessário que verifique dentro do Mercado livre, se todos os seus dados cadastrais estão de acordo."
+          },
+          {
+            "label": "Imagens com problemas de moderação. Term marcas d’água",
+            "solution": "Atualmente, ao enviarmos imagens para o Mercado Livre, elas passam por uma moderação automática feita pelo próprio marketplace. Isso indica que o bloqueio está vindo diretamente do Mercado Livre, e não do nosso sistema.\nNeste caso, o orientado é tentar remover a imagem e enviá-la, ou entrar em contato com o suporte do Mercado Livre. Assim, eles poderão orientar sobre o que precisa ser ajustado para que a imagem seja aceita."
           }
         ]
       }
@@ -260,6 +272,10 @@
           {
             "label": "O atributo Tipo possui um valor preenchido manualmente. Por favor, selecione um valor da lista pré-definida",
             "solution": "O erro é ocasionado, pois na ficha técnica do envio do anúncio, consta preenchido o campo em questão com um valor personalizado, o que é inválido para a Shein.\nPara corrigir essas situações, no ato do envio do produto à plataforma clique no card do anúncio e então na aba ficha técnica, você precisará clicar no ícone de lupa do campo deste atributo Tipo, e selecionar uma opção válida. Após, poderá salvar e prosseguir com o envio validando se ocorre com sucesso."
+          },
+          {
+            "label": "unable to obtain skc information according to spu",
+            "solution": "Esse erro está relacionado à estrutura do seu anúncio na Shein, especificamente à forma como as variações estão ligadas ao produto principal.\nNa Shein, as siglas representam:\nSPU: Produto pai\nSKC: Primeira grade de variações\nSKU: Segunda grade de variações\nO erro indica que o identificador mapeado na variação não corresponde ao identificador do produto pai.\nComo corrigir?\nPara resolver, você precisa revisar e garantir a correspondência dos identificadores do produto pai e de suas variações no seu sistema, comparando com o que está no painel da Shein.\nNo Olist, acesse o identificador do anúncio em: menu > cadastros > produtos > abra o item > aba anúncios.\nValide que o identificador do produto pai e os das variações estão corretos e batem com os da Shein.\nApós garantir essa correspondência, faça uma nova tentativa de importação."
           }
         ]
       }
@@ -304,7 +320,11 @@
           {
             "label": "Cod: 400. Erro: Bad Request. Causas:{slug:[This value has already been taken.]}.",
             "solution": "Acessar o cadastro do produto > editar > aba dados complementares > no campo Slug, remover o slug informado ou alterar o que está preenchido, pois o erro retornado informa que a informação adicionada já está sendo utilizada em outros anúncios da Tray"
-          }          
+          },
+          {
+            "label": "Invalid variation, all variations of the product XXX should be of the same type and have valid values",
+            "solution": "Verificar se é primeiro envio ou se o produto já está ativo na Tray\nEstando ativo, verificar se está mapeado com o produto corretamente\nQuerendo criar as variações, verificar se a grade está previamente criada na plataforma e com os nomes iguais\nSe estiver tudo certo, abrir um chamado e encaminhar para tech"
+          }               
         ]
       }
     ]
@@ -371,7 +391,20 @@
           {
             "label": "cURL Error: Operation timed out after 60002 milliseconds with 0 bytes received",
             "solution": "Essa condição é causada pelo fato de que o limite do seu site está configurado para bloqueio da operação após determinado tempo. Neste caso você precisa verificar com o responsável técnico do site para aumentar o tempo de resposta. Assim será possível concluir o envio dos produtos com sucesso."
-          }      
+          },
+          {
+            "label": "Sem permissão para listar recursos. [woocommerce_rest_cannot_view] Code: 401",
+            "solution": "O erro retornado informa que as chaves inseridas no ERP: Consumer Key e Consumer Secret não possuem permissão para acessar os recursos da API, por isso o erro.\nOrientamos que gere novamente essas chaves com todas as permissões necessárias, inserindo novamente no sistema e assim, verificando se consegue conectar em sua loja.\nAlém disso, indicamos que verifique qual a versão da API que está usando na WooCommerce e passe essa questão ao seu time técnico para que seja analisada, bem como se as permissões de leitura e escrita nas chaves estão selecionadas."
+          }
+        ]
+      },
+      {
+        "label": "Erro ao conectar integração",
+        "children": [
+          {
+            "label": "Syntax error Code: 403.",
+            "solution": "Neste caso, o seller precisaria liberar nossos IPs para que não haja bloqueio por parte da Woocommerce ao nosso sistema.\nSegue a lista dos nossos IPs que precisam de permissão para acessar a plataforma:44.219.78.226\n35.168.146.240\n44.217.13.28\n52.67.222.108\n54.94.87.222\n18.229.173.170\nAlém disso, deverá adicionar às permissões o país EUA, pois alguns de nossos IPs estão na Virginia, Estados Unidos."
+          }
         ]
       }
     ]
@@ -407,6 +440,10 @@
           {
             "label": "Erro Properties já está em uso no envio de produto com variações",
             "solution": "Ao enviar um produto com variações para a Vnda, pode aparecer a seguinte mensagem de erro:\n“NOME DA VARIAÇÃO | # properties […] já está em uso”\nEsse erro indica que os valores das grades de variação enviados pelo ERP da Olist não estão alinhados como foram configurados ou associados no painel da Vnda.\nComo corrigir\nAcesse o painel da Vnda.\nLocalize o produto que apresentou o erro.\nEdite as variações do produto, garantindo que estejam alocadas corretamente nas grades correspondentes.\nSalve as alterações.\nVolte ao ERP da Olist e realize um novo envio do produto."
+          },
+          {
+            "label": "Ocorreram erros de validação nas variações - Ao realizar um envio, traz o retorno: Peso líquido ou bruto não preenchido",
+            "solution": "Inserir em todas as variações as informações de Peso líquido e bruto na aba Dados gerais"
           }    
         ]
       }
