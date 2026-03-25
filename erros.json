@@ -10,6 +10,10 @@
             "solution": "Preencher os dados de peso, comprimento, largura e altura no cadastro do produto (☰) > Cadastros > Produtos > Editar > Dados gerais."
           },
           {
+            "label": "product.error_busi The MEASURE_UNIT is not correct, please check and upload again.",
+            "solution": "A unidade utilizada no produto não é aceita na categoria, é necessário trocar nos dados gerais do produto e enviar novamente para o e-commerce."
+          },
+          {
             "label": "product.error_busi Please input all image per variation for variation1, or leave them all empty",
             "solution": "Para que o envio seja concluído com sucesso, é necessário que todas as imagens das variações estejam no mesmo formato de arquivo, como por exemplo:\n- Todas em .jpg, ou\n- Todas em .png\nMisturar formatos diferentes (como algumas imagens em .jpg e outras em .png) pode gerar esse tipo de erro."
           },
@@ -148,6 +152,15 @@
           {
             "label": "O status deste pedido no e-commerce não permite o envio de dados fiscais",
             "solution": "A Shopee só aceita receber dados fiscais (NFe) quando o pedido está em um destes status:\nINVOICE_PENDING — pendente, não pago;\nREADY_TO_SHIP — pronto para envio.\nSe estiver em qualquer outro status, a plataforma bloqueia o recebimento dos dados fiscais.\nPor que acontece?\nO envio foi feito pelo ERP da Olist enquanto o pedido, na Shopee, não estava em um status elegível (INVOICE_PENDING ou READY_TO_SHIP).\nComo corrigir?\nVerifique o status na Shopee.\nNo detalhe do pedido, confirme se está em INVOICE_PENDING ou READY_TO_SHIP.\nAjuste o fluxo do pedido na Shopee, se necessário.\nRegularize/aguarde o pagamento.\nAvance o fluxo operacional até Pronto para envio.\nReenvie os dados fiscais pelo ERP da Olist.\nAbra o pedido no ERP → opção Enviar dados fiscais.\nConfirme a sincronização.\nNo pedido da Shopee, verifique se a NFe foi vinculada corretamente."
+          }
+        ]
+      },
+      {
+        "label": "Envio de dados da NF-e",
+        "children": [
+          {
+            "label": "Status da fatura inválido para enviar os dados da fatura.",
+            "solution": "Validar se dentro da Shopee, o faturador está selecionado como outros."
           }
         ]
       }
@@ -324,7 +337,7 @@
           {
             "label": "Invalid variation, all variations of the product XXX should be of the same type and have valid values",
             "solution": "Verificar se é primeiro envio ou se o produto já está ativo na Tray\nEstando ativo, verificar se está mapeado com o produto corretamente\nQuerendo criar as variações, verificar se a grade está previamente criada na plataforma e com os nomes iguais\nSe estiver tudo certo, abrir um chamado e encaminhar para tech"
-          }               
+          }
         ]
       }
     ]
@@ -350,6 +363,10 @@
           {
             "label": "Remova qualquer marcação não compatível do atributo Descrição do artigo para garantir que seus dados atendam às diretrizes da Amazon: Não use HTML, JavaScript ou outros tipos de código nas páginas de detalhes do produto.",
             "solution": "Verificar se o anúncio da Amazon está aceito, caso esteja, para atualizar no sistema exclua o anúncio no ERP e importe os anúncios novas da Amazon novamente"
+          },
+          {
+            "label": "Invalid 'sku' provided.SKU: XXX",
+            "solution": "Verificar se o SKU no anúncio da Amazon está correto."
           }  
         ]
       },
