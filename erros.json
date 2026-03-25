@@ -14,6 +14,10 @@
             "solution": "A unidade utilizada no produto não é aceita na categoria, é necessário trocar nos dados gerais do produto e enviar novamente para o e-commerce."
           },
           {
+            "label": "A descrição complementar do produto é obrigatória e deve conter 10 caracteres ou mais.",
+            "solution": "É necessário que a descrição complementar seja preenchida."
+          },
+          {
             "label": "product.error_busi Please input all image per variation for variation1, or leave them all empty",
             "solution": "Para que o envio seja concluído com sucesso, é necessário que todas as imagens das variações estejam no mesmo formato de arquivo, como por exemplo:\n- Todas em .jpg, ou\n- Todas em .png\nMisturar formatos diferentes (como algumas imagens em .jpg e outras em .png) pode gerar esse tipo de erro."
           },
@@ -100,10 +104,6 @@
           {
             "label": "product.error_inner Update item failed item upload controller tier option len no pass : variation option name length is greater than max limit",
             "solution": "Ao enviar um produto com variações para a Shopee, o sistema envia a descrição do produto principal mais a descrição da variação. No entanto, a Shopee não aceita que a descrição da variação tenha mais de 30 caracteres.\nPrimeiro, remova o produto já cadastrado na Shopee.\nNo ERP da Olist, acesse o cadastro de cada variação e do produto principal.\nNa aba Anúncios, clique no ícone da lixeira para desvincular o anúncio da Shopee.\nDepois de desvincular, transforme a variação em um produto simples.\nAjuste a descrição, certificando-se de que não tenha mais de 30 caracteres.\nSelecione a caixa de seleção do produto simples.\nClique em mais ações (...) e escolha a opção Transformar em variações.\nVincule-o novamente ao produto principal.\nPor fim, tente um novo envio do produto para a Shopee."
-          },
-          {
-            "label": "product.error_busi Variation name length should be within 1-30 . Erro ao enviar variação. product.error_busi Variation name length should be within 1-30",
-            "solution": "Essa mensagem indica que o nome da sua variação ultrapassa o limite de 30 caracteres permitido pela Shopee.\nComo corrigir?\nPara resolver, revise a descrição do seu produto e suas variações. Ajuste-as para que o nome das variações não exceda 30 caracteres. Depois, envie novamente."
           },
           {
             "label": "count of tier_variation option should be under 50",
