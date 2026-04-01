@@ -259,6 +259,10 @@
           {
             "label": "Imagens com problemas de moderação. Term marcas d’água",
             "solution": "Atualmente, ao enviarmos imagens para o Mercado Livre, elas passam por uma moderação automática feita pelo próprio marketplace. Isso indica que o bloqueio está vindo diretamente do Mercado Livre, e não do nosso sistema.\nNeste caso, o orientado é tentar remover a imagem e enviá-la, ou entrar em contato com o suporte do Mercado Livre. Assim, eles poderão orientar sobre o que precisa ser ajustado para que a imagem seja aceita."
+          },
+          {
+            "label": "product.error_busi This product duplicates another in your shop. Please modify it or remove the duplicate.",
+            "solution": "Esse erro ocorre, porque o cliente já possui o anúncio na Shopee.\nIndique para o cliente validar na Shopee qual o identificador do anúncio ativo e em importar para o ERP em:\nMenu > Cadastros > Anúncios > Shopee > Importar anúncios e faz a importação e relaciona com o produto que está tentando fazer o envio."
           }
         ]
       }
